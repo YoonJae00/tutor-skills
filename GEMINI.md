@@ -7,28 +7,32 @@ This repository contains two skills that turn any knowledge source into an **Obs
 - **tutor-setup**: Transforms knowledge sources into an Obsidian StudyVault.
 - **tutor**: Interactive quiz tutor for Obsidian StudyVault learning.
 
-## Installation for Gemini CLI
+## Installation
 
-To use these skills in Gemini CLI, you can install them locally or globally.
+Gemini CLI users can install these skills directly from the source directories. No packaging or global scripts are required.
 
 ### Local Installation (Current Workspace)
 
-1. Package and install the skills:
-   ```powershell
-   ./install-gemini.ps1
-   ```
-   *Note: This script dynamically locates your global gemini-cli installation to package the skills.*
+Run these commands in your terminal:
 
-2. Reload skills in your Gemini CLI session:
-   ```
-   /skills reload
-   ```
+```bash
+gemini skills install ./skills/tutor-setup --scope workspace --consent
+gemini skills install ./skills/tutor --scope workspace --consent
+```
 
 ### Global Installation
 
 ```bash
-gemini skills install ./tutor-setup.skill --scope user
-gemini skills install ./tutor.skill --scope user
+gemini skills install ./skills/tutor-setup --scope user --consent
+gemini skills install ./skills/tutor --scope user --consent
+```
+
+## After Installation
+
+After installing, you must reload the skills in your active Gemini CLI session:
+
+```bash
+/skills reload
 ```
 
 ## Usage
