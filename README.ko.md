@@ -128,7 +128,10 @@ PDF, 텍스트 파일, 웹 페이지 등을 종합적인 학습 노트로 변환
 
 - [Gemini CLI](https://github.com/google/gemini-cli) 설치 및 설정 완료
 - [Notion 계정](https://www.notion.so/) 및 [Notion MCP](https://mcp.notion.com/mcp) 설정 완료
-- Poppler (`pdftotext`) PDF 추출 도구
+- **Poppler (pdftotext)**: 고효율 PDF 파싱을 위해 필수적입니다.
+  - **macOS**: `brew install poppler`
+  - **Windows**: `choco install poppler`
+  - **Linux**: `sudo apt-get install poppler-utils`
 
 ## 라이선스
 

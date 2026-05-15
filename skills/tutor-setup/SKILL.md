@@ -21,7 +21,10 @@ description: Transforms knowledge sources (PDF, text, web, code) into a Notion S
    - Use `pdftotext` CLI ONLY. Run via `run_shell_command`.
    - **Windows**: `pdftotext "source.pdf" "$env:TEMP\source.txt"`
    - **macOS/Linux**: `pdftotext "source.pdf" "/tmp/source.txt"`
-   - If `pdftotext` is missing, instruct the user to install `poppler`.
+   - If `pdftotext` is missing, instruct the user to install `poppler` according to their OS:
+     - **Windows**: `choco install poppler`
+     - **macOS**: `brew install poppler`
+     - **Linux**: `sudo apt-get install poppler-utils`
 3. Read the extracted `.txt` files to understand scope and structure.
 
 ### Phase 3: Content Analysis

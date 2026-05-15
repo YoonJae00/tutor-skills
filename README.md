@@ -233,7 +233,10 @@ Concept-level tracking stores attempts, correct count, last tested date, and err
 
 - [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and configured
 - [Notion Account](https://www.notion.so/) and [Notion MCP](https://mcp.notion.com/mcp) configured
-- Poppler (specifically `pdftotext`) for PDF extraction
+- **Poppler (pdftotext)**: Required for high-efficiency PDF parsing.
+  - **macOS**: `brew install poppler`
+  - **Windows**: `choco install poppler`
+  - **Linux**: `sudo apt-get install poppler-utils`
 
 ## Repository Structure
 
