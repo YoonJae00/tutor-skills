@@ -3,14 +3,14 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-skill-orange)](https://github.com/google/gemini-cli)
 
-어떤 지식 소스든 **Obsidian StudyVault**로 변환하고, 이를 바탕으로 퀴즈를 진행하여 학습 내용을 완벽히 이해하도록 돕는 두 개의 [Gemini CLI](https://github.com/google/gemini-cli) 스킬입니다.
+어떤 지식 소스든 **Notion StudyVault**로 변환하고, 이를 바탕으로 퀴즈를 진행하여 학습 내용을 완벽히 이해하도록 돕는 두 개의 [Gemini CLI](https://github.com/google/gemini-cli) 스킬입니다.
 
 [English README](./README.md)
 
 ## 작동 원리
 
 ```
-  문서 / 코드                           Obsidian                     퀴즈 세션
+  문서 / 코드                           Notion                     퀴즈 세션
  ┌──────────────────┐           ┌──────────────────┐          ┌──────────────────┐
  │  PDF, MD, HTML,  │  /tutor   │   StudyVault/    │  /tutor  │  라운드당 4문제,  │
  │  EPUB, 소스 코드 │──setup──▶ │   구조화된       │────────▶ │  채점, 개념별     │
@@ -25,24 +25,36 @@
 
 | 스킬 | 명령어 | 용도 | 입력 | 출력 |
 |-------|---------|---------|-------|--------|
-| **tutor-setup** | `/tutor-setup` | StudyVault 생성 | 문서 또는 소스 코드 | 노트, 대시보드, 연습 문제가 포함된 Obsidian vault |
-| **tutor** | `/tutor` | 대화형 퀴즈 튜터 | 기존 StudyVault | 개념 수준의 진도 추적이 포함된 퀴즈 세션 |
+| **tutor-setup** | `/tutor-setup` | StudyVault 생성 | 문서 또는 소스 코드 | 노트와 연습 문제가 포함된 Notion 데이터베이스 |
+| **tutor** | `/tutor` | 대화형 퀴즈 튜터 | Notion StudyVault | 개념 수준의 진도 추적이 포함된 퀴즈 세션 |
 
-## 빠른 시작 (Gemini CLI)
+## 🚀 빠른 시작 (한 줄 설치)
 
-### 설치 (Windows)
+사용 중인 CLI에 맞는 명령어를 입력하세요:
 
-이 저장소를 클론하고 제공된 설치 스크립트를 실행하세요:
+**Claude Code 사용자:**
+```bash
+npx skills add YoonJae00/tutor-skills
+```
 
-```powershell
-git clone https://github.com/RoundTable02/tutor-skills.git
+**Gemini CLI 사용자:**
+```bash
+gemini skills install https://github.com/YoonJae00/tutor-skills --scope user --consent
+```
+
+> [!tip]
+> 이 명령어를 사용하면 저장소를 직접 클론할 필요 없이 자동으로 스킬이 등록됩니다.
+
+---
+
+## 🛠️ 수동 설치 (개발자용)
+
+스킬을 직접 수정하거나 기여하고 싶은 경우:
+
+```bash
+git clone https://github.com/YoonJae00/tutor-skills.git
 cd tutor-skills
-./install-gemini.ps1
-```
-
-설치 후 Gemini CLI 세션에서 다음 명령어를 실행하여 스킬을 로드하세요:
-```
-/skills reload
+./install-gemini.ps1  # Windows용 설치 스크립트
 ```
 
 ### 1단계: StudyVault 생성
@@ -64,7 +76,7 @@ gemini
 
 ## tutor-setup
 
-지식 소스를 구조화된 Obsidian StudyVault로 변환합니다. 프로젝트 마커를 기반으로 모드가 자동 감지됩니다:
+지식 소스를 구조화된 Notion StudyVault로 변환합니다. 프로젝트 마커를 기반으로 모드가 자동 감지됩니다:
 
 | 발견된 마커 | 모드 |
 |---|---|
@@ -115,7 +127,13 @@ PDF, 텍스트 파일, 웹 페이지 등을 종합적인 학습 노트로 변환
 ## 요구 사항
 
 - [Gemini CLI](https://github.com/google/gemini-cli) 설치 및 설정 완료
-- [Obsidian](https://obsidian.md/) (생성된 vault를 열고 탐색하기 위해 권장)
+- [Notion 계정](https://www.notion.so/) 및 [Notion MCP](https://mcp.notion.com/mcp) 설정 완료
+- Poppler (`pdftotext`) PDF 추출 도구
+
+## 라이선스
+
+[MIT](LICENSE)
+DF 추출 도구
 
 ## 라이선스
 

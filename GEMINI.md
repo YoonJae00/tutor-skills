@@ -1,41 +1,42 @@
 # Tutor Skills for Gemini CLI
 
-This repository contains two skills that turn any knowledge source into an **Obsidian StudyVault** and then quiz you on it.
+Transform any knowledge source into a **Notion StudyVault** and quiz yourself to discover blind spots.
 
 ## Available Skills
 
-- **tutor-setup**: Transforms knowledge sources into an Obsidian StudyVault.
-- **tutor**: Interactive quiz tutor for Obsidian StudyVault learning.
+- **tutor-setup**: Generates a StudyVault in Notion from documents (PDF, text, web) or source code.
+- **tutor**: Interactive quiz session with proficiency tracking and concept-level analysis via Notion API.
+
+## System Requirements
+
+The `tutor-setup` skill requires **poppler** (specifically `pdftotext`) for high-efficiency PDF parsing.
+
+- **Windows**: `choco install poppler`
+- **macOS**: `brew install poppler`
+- **Linux**: `sudo apt-get install poppler-utils`
 
 ## Installation
 
-Gemini CLI users can install these skills directly from the source directories. No packaging or global scripts are required.
-
-### Local Installation (Current Workspace)
-
-Run these commands in your terminal:
+### Local Installation (Workspace Scope)
 
 ```bash
 gemini skills install ./skills/tutor-setup --scope workspace --consent
 gemini skills install ./skills/tutor --scope workspace --consent
 ```
 
-### Global Installation
+### Global Installation (User Scope)
 
 ```bash
 gemini skills install ./skills/tutor-setup --scope user --consent
 gemini skills install ./skills/tutor --scope user --consent
 ```
 
-## After Installation
+## Usage
 
-After installing, you must reload the skills in your active Gemini CLI session:
-
+After installation, reload the skills in your session:
 ```bash
 /skills reload
 ```
 
-## Usage
-
-- `/tutor-setup` — Generate a StudyVault from documents or code
-- `/tutor` — Start an interactive quiz session
+- `/tutor-setup` — Initialize or update your StudyVault.
+- `/tutor` — Start an interactive learning session.

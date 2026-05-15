@@ -44,12 +44,16 @@ When targeting 🔴 concepts from concept files:
 - 4 questions per round, 4 options each, single-select
 - Header: max 12 chars, "Q1. Topic"
 
-## File Update Protocol
+## Notion Update Protocol
 
 After grading:
-1. Update `concepts/{area}.md` — add/update concept rows + error notes
-2. Update dashboard — recalculate area stats from concept files
-3. Badges: 🟥 0-39% · 🟨 40-69% · 🟩 70-89% · 🟦 90-100% · ⬜ no data
+1. Update Notion Concepts Database using `notion-update-page`.
+2. Properties to update:
+   - `Attempts`: Increment by 1.
+   - `Correct`: Increment if answer was correct.
+   - `Status`: Recalculate based on `Correct / Attempts`.
+     - 🟥 0-39% · 🟨 40-69% · 🟩 70-89% · 🟦 90-100%
+   - `Error Notes`: Append or update insights for missed questions.
 
 ## Language Rule
 

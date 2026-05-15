@@ -1,7 +1,7 @@
 # Codebase Mode — Onboarding Vault Workflow
 
-> Generates a StudyVault that helps new developers understand and navigate a source code project.
-> All scanning and output MUST stay within CWD.
+> Generates a Notion StudyVault that helps new developers understand and navigate a source code project.
+> All scanning and reading MUST stay within CWD.
 
 ## Phase C1: Project Exploration
 
@@ -28,68 +28,52 @@ Define tag vocabulary before creating notes:
 - **Categories**: `#arch-*` (architecture), `#module-*` (modules), `#pattern-*` (patterns), `#config-*` (config), `#api-*` (API), `#test-*` (testing)
 - **Registry**: Only registered tags allowed. Present registry to user for approval.
 
-## Phase C4: Vault Structure
+## Phase C4: Notion Vault Structure
 
-Create `StudyVault/` per [codebase-templates.md](codebase-templates.md) folder structure:
-- `00-Dashboard/` — MOC, Quick Reference, Getting Started
-- `01-Architecture/` — System overview, request flow, data flow
-- `02-XX/` through `NN-XX/` — One folder per module/domain
-- `NN+1-DevOps/` — Build, deploy, CI/CD, environment config
-- `NN+2-Exercises/` — Onboarding exercises
+Use `notion-create-pages` and `notion-create-database` to build the StudyVault:
+- **Parent Page**: "StudyVault - {Project Name}"
+- **Concepts Database**: Child database named "Concepts"
+- **Categories (Area property)**: Architecture, Module: {Name}, DevOps, Exercises, Onboarding
 
-## Phase C5: Dashboard Creation
+## Phase C5: Dashboard & Architecture
 
-Create `00-Dashboard/` with:
+Populate the Notion Concepts Database with:
 
-### MOC (Map of Content)
-- **Architecture Overview**: Link to architecture notes
-- **Module Map**: Table of all modules with purpose + links
-- **API Surface**: Summary of endpoints/commands/events
-- **Getting Started**: Setup instructions, dev workflow, key commands
-- **Tag Index**: Tag registry with hierarchy rules
-- **Onboarding Path**: Recommended reading order for new developers
+### Architecture Summary (Page in Concepts Database)
+- **Area**: Architecture
+- **Importance**: ★★★
+- **Content**: System overview, request flow, data flow (ASCII diagrams)
 
-### Quick Reference
-- Key commands (build, test, deploy, lint)
-- Environment setup steps
-- Common debugging tips
-- Important file locations
+### Onboarding Guide (Page in Concepts Database)
+- **Area**: Onboarding
+- **Content**: Setup instructions, dev workflow, key commands, recommended reading order
 
 ## Phase C6: Module Notes
 
-One note per module/domain. Per [codebase-templates.md](codebase-templates.md). Key rules:
+One page per module/domain in the Concepts Database. Key rules:
 
-- YAML frontmatter: `module`, `path`, `keywords` (MANDATORY)
+- **Area**: Module: {Name}
+- **Properties**: `Path`, `Key Files` (rich_text)
 - **Purpose**: What this module does (1-3 sentences)
-- **Key Files**: Table of important files with descriptions
 - **Public Interface**: Exported functions/classes/endpoints
 - **Internal Flow**: How data moves through this module (ASCII diagram)
 - **Dependencies**: What this module depends on + what depends on it
-- **Configuration**: Relevant env vars, config keys
-- **Testing**: How to run tests for this module, test patterns used
-- **Related Notes**: Links to related modules and architecture notes
-
-For API-heavy modules, create separate API notes per [codebase-templates.md](codebase-templates.md).
 
 ## Phase C7: Onboarding Exercises
 
-Create exercises that guide new developers through the codebase. Per [codebase-templates.md](codebase-templates.md).
+Create pages in the Concepts Database with **Area**: Exercises.
 
-- **Code Reading**: "Trace what happens when X occurs" — answer in fold callout
+- **Code Reading**: "Trace what happens when X occurs" — answer in `<details>` block
 - **Configuration**: "How would you change Y?" — answer with file paths + snippets
 - **Debugging**: "Where would you look if Z breaks?" — answer with investigation steps
 - **Extension**: "How would you add feature W?" — answer with architectural approach
 - Minimum 5 exercises per major module
-- All answers use `> [!answer]- <label>` fold callout (localize label to team language, e.g., "정답 보기" for Korean, "View Answer" for English)
+- All answers use `<details><summary>Answer</summary>...</details>` blocks
 
 ## Phase C8: Interlinking
 
-1. `## Related Notes` on every module note
-2. MOC links to every module note + exercise file
-3. Cross-link modules that depend on each other
-4. Architecture notes reference specific module implementations
-5. Exercises reference the modules they cover
-6. Quick Reference links to relevant module notes
+1. Use Notion's internal linking (typing `[[` or `@` in the Notion UI, or using page IDs in the API) to cross-reference modules.
+2. Ensure every module page links back to the Architecture summary and Onboarding guide.
 
 ## Phase C9: Self-Review (MANDATORY)
 

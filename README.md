@@ -5,14 +5,14 @@
 [![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-skill-orange)](https://github.com/google/gemini-cli)
 [![Install with npx skills](https://img.shields.io/badge/npx_skills-add-green)](https://github.com/vercel-labs/skills)
 
-Two skills (for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [Gemini CLI](https://github.com/google/gemini-cli)) that turn any knowledge source into an **Obsidian StudyVault** and then quiz you on it — closing the loop from content to comprehension.
+Two skills (for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [Gemini CLI](https://github.com/google/gemini-cli)) that turn any knowledge source into an **Notion StudyVault** and then quiz you on it — closing the loop from content to comprehension.
 
 [한국어 README](./README.ko.md)
 
 ## How It Works
 
 ```
-  Documents / Code                    Obsidian                    Quiz Session
+  Documents / Code                    Notion                    Quiz Session
  ┌──────────────────┐           ┌──────────────────┐          ┌──────────────────┐
  │  PDF, MD, HTML,  │  /tutor   │   StudyVault/    │  /tutor  │  4 questions per  │
  │  EPUB, source    │──setup──▶ │   structured     │────────▶ │  round, graded,   │
@@ -27,31 +27,36 @@ Two skills (for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) an
 
 | Skill | Command | Purpose | Input | Output |
 |-------|---------|---------|-------|--------|
-| **tutor-setup** | `/tutor-setup` | Generate a StudyVault | Documents or source code | Obsidian vault with notes, dashboards, practice questions |
+| **tutor-setup** | `/tutor-setup` | Generate a StudyVault | Documents or source code | Notion vault with notes, dashboards, practice questions |
 | **tutor** | `/tutor` | Interactive quiz tutor | An existing StudyVault | Quiz sessions with concept-level progress tracking |
 
-## Quick Start
+## 🚀 Quick Start (One-line Install)
 
-### One-line install (recommended)
+Choose the command for your CLI:
 
 **For Claude Code:**
 ```bash
-npx skills add RoundTable02/tutor-skills
+npx skills add YoonJae00/tutor-skills
 ```
 
-**For Gemini CLI (Windows):**
-```powershell
-./install-gemini.ps1
+**For Gemini CLI:**
+```bash
+gemini skills install https://github.com/YoonJae00/tutor-skills --scope user --consent
 ```
 
-> Requires [Gemini CLI](https://github.com/google/gemini-cli) installed.
+> [!tip]
+> These commands will automatically download and register the skills without needing to clone this repository manually.
 
-### Manual install
+---
+
+## 🛠️ Manual Installation (for Developers)
+
+If you want to contribute or modify the skills:
 
 ```bash
-git clone https://github.com/RoundTable02/tutor-skills.git
+git clone https://github.com/YoonJae00/tutor-skills.git
 cd tutor-skills
-./install.sh
+./install.sh  # or ./install-gemini.ps1 on Windows
 ```
 
 ### Step 1: Generate a StudyVault
@@ -73,7 +78,7 @@ claude
 
 ## tutor-setup
 
-Transforms knowledge sources into a structured Obsidian StudyVault. Mode is auto-detected:
+Transforms knowledge sources into a structured Notion StudyVault. Mode is auto-detected:
 
 | Marker Found | Mode |
 |---|---|
@@ -202,7 +207,7 @@ Concept-level tracking stores attempts, correct count, last tested date, and err
                       ▼
            ┌────────────────────────────┐
            │   Read & review notes      │
-           │   in Obsidian              │
+           │   in Notion                │
            └──────────┬─────────────────┘
                       │
                       ▼
@@ -214,7 +219,7 @@ Concept-level tracking stores attempts, correct count, last tested date, and err
                       ▼                              │
            ┌────────────────────────────┐           │
            │   Review weak areas        │           │
-           │   in Obsidian              │           │
+           │   in Notion                │           │
            └──────────┬─────────────────┘           │
                       │                              │
                       ▼                              │
@@ -227,7 +232,8 @@ Concept-level tracking stores attempts, correct count, last tested date, and err
 ## Requirements
 
 - [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and configured
-- [Obsidian](https://obsidian.md/) (recommended) to open and navigate the generated vault
+- [Notion Account](https://www.notion.so/) and [Notion MCP](https://mcp.notion.com/mcp) configured
+- Poppler (specifically `pdftotext`) for PDF extraction
 
 ## Repository Structure
 
@@ -263,6 +269,12 @@ Or manually:
 ```bash
 rm -rf ~/.claude/skills/tutor-setup
 rm -rf ~/.claude/skills/tutor
+```
+
+## License
+
+[MIT](LICENSE)
+ -rf ~/.claude/skills/tutor
 ```
 
 ## License

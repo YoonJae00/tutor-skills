@@ -12,51 +12,38 @@ Before reporting completion, verify every item in the relevant mode's section. F
 - [ ] Every `source_pdf` frontmatter matches verified mapping
 - [ ] Non-academic files excluded and documented
 - [ ] Missing sources marked as `원문 미보유`
-- [ ] Non-core topic policy documented in MOC
 
 ### Coverage
-- [ ] Every topic from Phase D2 checklist has a concept note
-- [ ] Every enumerated category member has its own note
+- [ ] Every topic from Content Analysis has a concept page in Notion
+- [ ] Every enumerated category member has its own page
 - [ ] No source topic missing or underrepresented
 
 ### Tags
 - [ ] All tags: English kebab-case, from registry only
 - [ ] Tag Index includes hierarchy rules
-- [ ] Detail tags co-attached with parent domain tags
 
 ### Structure & Formatting
-- [ ] Every note has YAML frontmatter: `source_pdf`, `part`, `keywords`
-- [ ] Every concept note has comparison table + exam/test patterns section
+- [ ] Every concept page has comparison table + exam/test patterns section
 - [ ] Process/flow topics have ASCII diagrams
-- [ ] Notes are concise (tables > prose)
+- [ ] Content is concise (tables > prose)
 - [ ] Simplified statements include exception caveats
 
-### Dashboard
-- [ ] MOC: Topic Map + Practice Notes + Study Tools + Tag Index + Weak Areas + Non-core Policy
-- [ ] MOC links to every concept note AND practice note
-- [ ] Weak Areas link to `→ [[note]]` AND `→ [[Exam Traps]]`
-- [ ] Exam Traps exists with per-topic fold callouts and bidirectional links
-
-### Quick Reference
-- [ ] All key formulas and condition expressions included
-- [ ] Every section links to concept note via `→ [[Note]]`
+### Notion Setup
+- [ ] Parent page created for the Subject
+- [ ] Concepts Database created with Area, Importance, Status, Attempts, Correct, Error Notes properties
+- [ ] All pages successfully added to the database
 
 ### Practice — Active Recall
-- [ ] Every topic folder has practice file (8+ questions)
-- [ ] All answers use `> [!answer]- 정답 보기` fold — never immediately visible
-- [ ] Key Patterns: `> [!hint]-` fold; Pattern Summary: `> [!summary]-` fold
-- [ ] `## Related Concepts` with backlinks in every practice file
-- [ ] Question type diversity: ≥60% recall, ≥20% application, ≥2 analysis per file
+- [ ] Minimum 8 questions per topic
+- [ ] All answers use `<details><summary>Answer</summary>...</details>` blocks — never immediately visible
+- [ ] Question type diversity: ≥60% recall, ≥20% application, ≥2 analysis per domain
 
 ### Interlinking
-- [ ] Every concept note has `## Related Notes`
-- [ ] `[[wiki-links]]` for all cross-references
-- [ ] Siblings reference each other; concept ↔ practice cross-linked
-- [ ] Exam Traps ↔ Concept notes bidirectionally linked
+- [ ] Every concept page has "Related" section
+- [ ] Use Notion internal linking for all cross-references
 
 ### CWD Boundary
 - [ ] No source files accessed outside CWD
-- [ ] No absolute file paths in notes or frontmatter
 - [ ] External URLs accessed only via WebFetch, not file paths
 
 ---
@@ -71,36 +58,27 @@ Before reporting completion, verify every item in the relevant mode's section. F
 - [ ] External dependencies and integrations listed
 
 ### Module Completeness
-- [ ] Every module has a dedicated note with YAML frontmatter (`module`, `path`, `keywords`)
-- [ ] Every module note includes: Purpose, Key Files, Public Interface, Internal Flow, Dependencies
+- [ ] Every module has a dedicated page in the Concepts Database
+- [ ] Every module page includes: Purpose, Key Files, Public Interface, Internal Flow, Dependencies
 - [ ] Configuration section lists relevant env vars / config keys
 - [ ] Testing section includes commands and patterns
 
-### Tags
-- [ ] All tags: English kebab-case, from registry only
-- [ ] Tag Index in MOC with hierarchy rules
-- [ ] Tags cover: `#arch-*`, `#module-*`, `#pattern-*`, `#api-*`
-
-### Dashboard
-- [ ] MOC: Architecture Overview + Module Map + API Surface + Getting Started + Tag Index + Onboarding Path
-- [ ] MOC links to every module note and exercise file
-- [ ] Quick Reference: key commands, env setup, file locations, debugging tips
-- [ ] Getting Started section is actionable (copy-paste commands)
+### Notion Setup
+- [ ] Parent page created for the Project
+- [ ] Concepts Database created with Area, Importance, Status, Attempts, Correct, Error Notes properties
+- [ ] Pages tagged with correct Area (e.g., Architecture, Module: X, Exercises)
 
 ### Onboarding Exercises
 - [ ] Minimum 5 exercises per major module
 - [ ] Exercise types: code reading (trace), configuration, debugging, extension
-- [ ] All answers use `> [!answer]- 정답 보기` fold callout
-- [ ] Exercises reference relevant module notes via `[[wiki-links]]`
+- [ ] All answers use `<details><summary>Answer</summary>...</details>` blocks
+- [ ] Exercises link back to the modules they cover
 
 ### Interlinking
-- [ ] Every module note has `## Related Notes`
-- [ ] `[[wiki-links]]` for all cross-references
+- [ ] Use Notion internal linking for all cross-references
 - [ ] Dependent modules cross-linked bidirectionally
 - [ ] Architecture notes reference specific module implementations
-- [ ] Exercises link back to the modules they cover
 
 ### CWD Boundary
 - [ ] No references to files outside the project directory
-- [ ] All file paths in notes are relative to project root
-- [ ] No hardcoded absolute paths
+- [ ] All file paths in pages are relative to project root
