@@ -34,9 +34,9 @@ Detect user's language from their message → `{LANG}`. All output and file cont
 
 ### Phase 1: Discover Vault
 
-1. Glob `**/StudyVault/` in project
+1. glob `**/StudyVault/` in project
 2. List section directories
-3. Glob `**/StudyVault/*dashboard*` to find dashboard
+3. glob `**/StudyVault/*dashboard*` to find dashboard
 4. If found, read it. Preserve existing file path regardless of language.
 5. If not found, create from template (see Dashboard Template below)
 
@@ -44,7 +44,7 @@ If no StudyVault exists, inform user and stop.
 
 ### Phase 2: Ask Session Type
 
-**MANDATORY**: Use AskUserQuestion to let the user choose what to do. Analyze the dashboard to build context-aware options, then present them.
+**MANDATORY**: Use ask_user to let the user choose what to do. Analyze the dashboard to build context-aware options, then present them.
 
 Read the dashboard proficiency table and build options based on current state:
 
@@ -53,11 +53,11 @@ Read the dashboard proficiency table and build options based on current state:
 3. Always include "Choose a section" option so the user can pick any area
 4. If all areas are 🟩/🟦 → include "Hard-mode review" option
 
-Present these as an AskUserQuestion with header "Session" and concise descriptions showing which areas each option targets. The user MUST select before proceeding.
+Present these using ask_user with header "Session" and concise descriptions showing which areas each option targets. The user MUST select before proceeding.
 
 ### Phase 3: Build Questions
 
-1. Read markdown files in target section(s)
+1. read_file markdown files in target section(s)
 2. If drilling weak area: also read `concepts/{area}.md` to find 🔴 unresolved concepts — rephrase these in new contexts (don't repeat the same question)
 3. Craft exactly 4 questions following `references/quiz-rules.md`
 
@@ -65,7 +65,7 @@ Present these as an AskUserQuestion with header "Session" and concise descriptio
 
 ### Phase 4: Present Quiz
 
-Use AskUserQuestion:
+Use ask_user:
 - 4 questions, 4 options each, single-select
 - Header: "Q1. Topic" (max 12 chars)
 - Descriptions: neutral, no hints

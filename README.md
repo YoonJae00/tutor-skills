@@ -2,9 +2,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-skill-blue)](https://docs.anthropic.com/en/docs/claude-code)
+[![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-skill-orange)](https://github.com/google/gemini-cli)
 [![Install with npx skills](https://img.shields.io/badge/npx_skills-add-green)](https://github.com/vercel-labs/skills)
 
-Two [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills that turn any knowledge source into an **Obsidian StudyVault** and then quiz you on it — closing the loop from content to comprehension.
+Two skills (for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) and [Gemini CLI](https://github.com/google/gemini-cli)) that turn any knowledge source into an **Obsidian StudyVault** and then quiz you on it — closing the loop from content to comprehension.
+
+[한국어 README](./README.ko.md)
 
 ## How It Works
 
@@ -31,11 +34,17 @@ Two [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills that tu
 
 ### One-line install (recommended)
 
+**For Claude Code:**
 ```bash
 npx skills add RoundTable02/tutor-skills
 ```
 
-> Requires [npx skills](https://github.com/vercel-labs/skills) — works with Claude Code, Cursor, Windsurf, and more.
+**For Gemini CLI (Windows):**
+```powershell
+./install-gemini.ps1
+```
+
+> Requires [Gemini CLI](https://github.com/google/gemini-cli) installed.
 
 ### Manual install
 

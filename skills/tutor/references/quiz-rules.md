@@ -39,7 +39,7 @@ When targeting 🔴 concepts from concept files:
 - Test the same underlying knowledge from a different angle
 - E.g., if user confused "400 vs 422", ask a scenario question where they must choose the correct status code for a new situation
 
-## AskUserQuestion Format
+## ask_user Format
 
 - 4 questions per round, 4 options each, single-select
 - Header: max 12 chars, "Q1. Topic"

@@ -5,7 +5,7 @@
 
 ## Phase C1: Project Exploration
 
-1. **Scan project structure**: `Glob` for source files, config files, test files. Build a file tree.
+1. **Scan project structure**: `glob` for source files, config files, test files. Build a file tree.
 2. **Identify tech stack**: Detect languages, frameworks, build tools, package managers from config files.
 3. **Read key files**: README, CONTRIBUTING, entry points (`main.*`, `index.*`, `app.*`), config files.
 4. **Map project layout**: Record directory purposes (e.g., `src/`, `test/`, `config/`, `scripts/`).

@@ -6,7 +6,7 @@ description: >
   (2) Codebase Mode — source code project → onboarding vault for new developers.
   Mode is auto-detected based on project markers in CWD.
 argument-hint: "[source-path-or-url]"
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash, WebFetch
+allowed-tools: read_file, write_file, replace, glob, grep_search, run_shell_command, web_fetch
 ---
 
 # Tutor Setup — Knowledge to Obsidian StudyVault
@@ -40,13 +40,13 @@ On invocation, detect mode automatically:
 
 1. **Auto-scan CWD** for `**/*.pdf`, `**/*.txt`, `**/*.md`, `**/*.html`, `**/*.epub` (exclude `node_modules/`, `.git/`, `dist/`, `build/`, `StudyVault/`). Present for user confirmation.
 2. **Extract text (MANDATORY tools)**:
-   - **PDF → `pdftotext` CLI ONLY** (run via Bash tool). NEVER use the Read tool directly on PDF files — it renders pages as images and wastes 10-50x more tokens. Convert to `.txt` first, then Read the `.txt` file.
+   - **PDF → `pdftotext` CLI ONLY** (run via run_shell_command tool). NEVER use the read_file tool directly on PDF files — it renders pages as images and wastes 10-50x more tokens. Convert to `.txt` first, then read_file the `.txt` file.
      ```bash
      pdftotext "source.pdf" "/tmp/source.txt"
      ```
    - If `pdftotext` is not installed, install it first: `brew install poppler` (macOS) or `apt-get install poppler-utils` (Linux).
-   - URL → WebFetch
-   - Other formats (`.md`, `.txt`, `.html`) → Read directly.
+   - URL → web_fetch
+   - Other formats (`.md`, `.txt`, `.html`) → read_file directly.
 3. **Read extracted `.txt` files** — understand scope, structure, depth. Work exclusively from the converted text, never from the raw PDF.
 4. **Source Content Mapping (MANDATORY for multi-file sources)**:
    - Read **cover page + TOC + 3+ sample pages from middle/end** for EVERY source file
