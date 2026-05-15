@@ -27,9 +27,11 @@ description: Transforms knowledge sources (PDF, text, web, code) into a Notion S
      - **Linux**: `sudo apt-get install poppler-utils`
 3. Read the extracted `.txt` files to understand scope and structure.
 
-### Phase 3: Content Analysis
-1. Map topic hierarchy and identify key concepts vs. practice questions.
-2. Verify source-to-concept mapping.
+### Phase 3: Content Analysis (Delegation Recommended)
+1. **Delegation Strategy**: For large documents or multiple files, **INVOKE a sub-agent (`@generalist`)** to perform the analysis. 
+   - **Prompt**: "Analyze these extracted text files and build a structured concept map. Identify key definitions, comparison points, and potential exam patterns. Output the result as a concise summary for each topic."
+2. Map topic hierarchy and identify key concepts vs. practice questions based on the sub-agent's high-signal output.
+3. Verify source-to-concept mapping.
 
 ### Phase 4: Notion Vault Construction
 1. **Create Parent Page**: Use `notion-create-pages` to create a parent page named "StudyVault - {Subject}".
